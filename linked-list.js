@@ -21,6 +21,18 @@ class LinkedList {
   /** push(val): add new value to end of list. */
 
   push(val) {
+    const newNode = new Node(val);
+
+    // if LinkedList instance is empty
+    if (!this.head) {
+      this.head = newNode;
+      this.tail = newNode;
+    }
+
+    this.tail.next = newNode;
+    this.tail = newNode;
+
+    this.length += 1;
   }
 
   /** unshift(val): add new value to start of list. */
@@ -42,7 +54,14 @@ class LinkedList {
   /** getAt(idx): get val at idx. */
 
   getAt(idx) {
+    let count = 0;
+    let currentNode = this.head;
 
+    while (currentNode !== null && count !== idx) {
+      count ++;
+      currentNode = currentNode.next;
+    }
+    return currentNode ? currentNode.val : null;
   }
 
   /** setAt(idx, val): set val at idx to val */
