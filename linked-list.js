@@ -38,6 +38,25 @@ class LinkedList {
   /** unshift(val): add new value to start of list. */
 
   unshift(val) {
+    const newNode = new Node(val);
+
+    // if LinkedList instance is empty, head should be set to newNode
+    if (!this.head) {
+      this.head = newNode;
+    }
+
+    // prepend the LL with the newNode and move the head pointer to the newNode
+    newNode.next = this.head;
+    this.head = newNode;
+    
+    // if LL was empty prior to this operation
+    if (this.length === 0) {
+      this.head = this.tail;
+    }
+    
+    // update the length of the list
+    this.length += 1;
+  }
 
   /** pop(): return & remove last item. */
 
