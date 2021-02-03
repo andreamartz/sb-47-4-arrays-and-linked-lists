@@ -18,6 +18,19 @@ class LinkedList {
     for (let val of vals) this.push(val);
   }
 
+  /** _get(idx): get the item at index idx */
+
+  _get(idx) {
+    let count = 0;
+    let currentNode = this.head;
+
+    while (currentNode !== null && count !== idx) {
+      count ++;
+      currentNode = currentNode.next;
+    }
+    return currentNode ? currentNode : null;
+  }
+
   /** push(val): add new value to end of list. */
 
   push(val) {
