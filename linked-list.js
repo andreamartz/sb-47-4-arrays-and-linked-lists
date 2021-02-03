@@ -69,7 +69,22 @@ class LinkedList {
   /** pop(): return & remove last item. */
 
   pop() {
-
+    // find the last item
+    let prev = null;
+    let currentNode = this.head;
+    let currTemp;
+    // let next = currentNode.next;
+    while (currentNode.next) {
+      console.log(currentNode.val);
+      currTemp = currentNode;
+      // next = 
+      currentNode = currentNode.next;
+      prev = currTemp;
+    }
+    // remove it
+    this.tail = prev;
+    // return it
+    return currentNode;
   }
 
   /** shift(): return & remove first item. */
